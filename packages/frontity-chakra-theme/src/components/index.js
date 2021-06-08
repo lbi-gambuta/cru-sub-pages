@@ -31,6 +31,7 @@ import Teams from "./sections/team-sections";
 import TitleSection from "./sections/title";
 
 import CruTeam from "./pages/cru-team";
+import Hosting from "./pages/hosting";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
@@ -108,6 +109,12 @@ const Theme = ({ state }) => {
       <Heading textAlign="center">CRU Consulting Page Content</Heading>
       <Divider />
       <CruTeam />
+      <Divider />
+
+      <Divider />
+      <Heading textAlign="center">Hosting Page Content</Heading>
+      <Divider />
+      <Hosting />
       <Divider />
 
       <Divider />

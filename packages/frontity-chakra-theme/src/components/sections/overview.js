@@ -18,12 +18,13 @@ const Overview = ({ textContent="Text here", buttonText, buttonLink}) => {
                     {textContent}
                 </Text>
             </Box>
-            <Box as="div" 
-            className={["btn-group"].filter(Boolean).join('')}
-            justifyContent="center"
-            margin="20px 0 0">
-                <Link href={buttonLink} className="btn pink-btn">{buttonText}</Link>
-            </Box>
+            {buttonText &&
+                <Box as="div" 
+                    className={["btn-group"].filter(Boolean).join('')}
+                    justifyContent="center"
+                    margin="20px 0 0">
+                        <Link href={buttonLink} className="btn pink-btn">{buttonText}</Link>
+                </Box>}
         </Box>
     </Box>
     )

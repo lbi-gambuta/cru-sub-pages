@@ -64,9 +64,8 @@ const Tile = ( {
                 templateColumns={{ md:"repeat(3, 1fr)", sm:"100%" }}
                 >
                     {
-                        tiles.map( (tile) => {
-                            <TileItem img={tile[0].img} title={tile[0].tile} desc={tile[0].desc} />
-                        })
+                        tiles.map( (tile, index) =>
+                            <TileItem key={index} img={tile[0].img} title={tile[0].title} desc={tile[0].desc} /> )
                     }
                     {/* <TileItem img={img1} paddingLeft={{ md:"0" }} title="Auto-healing Technology" desc="Your site will fix itseld in the rare event of a service failure, meaning better uptime, more reliable performance, and fewer site crashes." />
                     <TileItem img={img2} title="Flycache" desc="Our custom caching technology is optimized for the most popular themes and plugins to make sure your site is cached (or not!) when it should be." />
