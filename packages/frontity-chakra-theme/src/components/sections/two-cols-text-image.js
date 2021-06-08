@@ -3,7 +3,7 @@ import {Box, Grid, GridItem, Heading, Text, Image} from '@chakra-ui/react'
 import { styled } from 'frontity'
 import contentImg from '../../assets/image-2.jpg';
 
-const TwoColsTextImg = () => {
+const TwoColsTextImg = ({ leftImage = contentImg, headingText = 'Collaborate better together.', contentText="Lower the barrier to remote collaboration with screen-sharing, whiteboards, scratchpads, timers and coming soon, integrations to your favorite apps" }) => {
     return(
         <Box as="section">
             <Box
@@ -24,16 +24,16 @@ const TwoColsTextImg = () => {
                         paddingRight={{ md:"5%", sm:"0" }}
                         maxWidth={{ md:"600px", sm:"100%" }}
                         marginTop={{ md:"initial", sm:"30px" }}>
-                            <Heading as="h2">Collaborate better together.</Heading>
+                            <Heading as="h2">{headingText}</Heading>
                             <Text marginTop="30px">
-                            Lower the barrier to remote collaboration with screen-sharing, whiteboards, scratchpads, timers and coming soon, integrations to your favorite apps
+                                {contentText}
                             </Text>
                         </Box>
                     </GridItem>
                     <GridItem
                     className={['col-1 stc-image'].filter(Boolean).join('')}
                     order={{ md:"2", sm:"1" }}>
-                        <Image src={contentImg} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
+                        <Image src={leftImage} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
                     </GridItem>
                 </Grid>
             </Box>

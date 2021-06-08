@@ -3,7 +3,7 @@ import {Box, Grid, GridItem, Heading, Text, Image} from '@chakra-ui/react'
 import { styled } from 'frontity'
 import contentImg from '../../assets/image.jpg';
 
-const TwoColsImgText = () => {
+const TwoColsImgText = ({ leftImage = contentImg, headingText = 'Reduce the friction to talk with your team', contentText="Walk or move to join a conversation just like you would in the office. You can only hear or be heard by people around you. Teamflow's spatial audio makes for the most natural happy hours, hangouts, or spontaneous chats."}) => {
     return(
         <Box as="section">
             <Box
@@ -19,7 +19,7 @@ const TwoColsImgText = () => {
                 templateColumns={{ md:"repeat(2, 1fr)", sm:"100%" }}>
                     <GridItem
                     className={['col-1 stc-image'].filter(Boolean).join('')}>
-                        <Image src={contentImg} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
+                        <Image src={leftImage} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
                     </GridItem>
                     <GridItem
                     className={['col-2 stc-text'].filter(Boolean).join('')}>
@@ -27,9 +27,9 @@ const TwoColsImgText = () => {
                         paddingLeft={{ md:"5%", sm:"0" }}
                         maxWidth={{ md:"600px", sm:"100%" }}
                         marginTop={{ md:"initial", sm:"30px" }}>
-                            <Heading as="h2">Reduce the friction to talk with your team</Heading>
+                            <Heading as="h2">{headingText}</Heading>
                             <Text marginTop="30px">
-                                Walk or move to join a conversation just like you would in the office. You can only hear or be heard by people around you. Teamflow's spatial audio makes for the most natural happy hours, hangouts, or spontaneous chats.
+                                {contentText}
                             </Text>
                         </Box>
                     </GridItem>

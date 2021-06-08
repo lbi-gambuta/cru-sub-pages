@@ -29,7 +29,26 @@ const TileItem = ({ img, title, desc, ...props }) => {
     )
 }
 
-const Tile = () => {
+
+const Tile = ( { 
+    tiles = [
+        [{
+            img : {img1},
+            title : "Auto-healing Technology",
+            desc : "Your site will fix itseld in the rare event of a service failure, meaning better uptime, more reliable performance, and fewer site crashes."
+        }],
+        [{
+            img : {img2},
+            title : "Flycache",
+            desc : "Our custom caching technology is optimized for the most popular themes and plugins to make sure your site is cached (or not!) when it should be."
+        }],
+        [{
+            img : {img3},
+            title : "CDN",
+            desc : "Every site gets world-class CDN at no extra cost, so site visitors around the world willl see exceptional page speeds (not blank loading screens)."
+        }] 
+    ]
+ }) => {
     return (
         <Box as="section">
             <Box as="div"
@@ -44,9 +63,14 @@ const Tile = () => {
                 alignItems="start"
                 templateColumns={{ md:"repeat(3, 1fr)", sm:"100%" }}
                 >
-                    <TileItem img={img1} paddingLeft={{ md:"0" }} title="Auto-healing Technology" desc="Your site will fix itseld in the rare event of a service failure, meaning better uptime, more reliable performance, and fewer site crashes." />
+                    {
+                        tiles.map( (tile) => {
+                            <TileItem img={tile[0].img} title={tile[0].tile} desc={tile[0].desc} />
+                        })
+                    }
+                    {/* <TileItem img={img1} paddingLeft={{ md:"0" }} title="Auto-healing Technology" desc="Your site will fix itseld in the rare event of a service failure, meaning better uptime, more reliable performance, and fewer site crashes." />
                     <TileItem img={img2} title="Flycache" desc="Our custom caching technology is optimized for the most popular themes and plugins to make sure your site is cached (or not!) when it should be." />
-                    <TileItem img={img3} paddingRight={{ md:"0" }} title="CDN" desc="Every site gets world-class CDN at no extra cost, so site visitors around the world willl see exceptional page speeds (not blank loading screens)." />
+                    <TileItem img={img3} paddingRight={{ md:"0" }} title="CDN" desc="Every site gets world-class CDN at no extra cost, so site visitors around the world willl see exceptional page speeds (not blank loading screens)." /> */}
                 </Grid>
             </Box>
         </Box>
