@@ -3,12 +3,13 @@ import {Box, Grid, GridItem, Heading, Text, Image} from '@chakra-ui/react'
 import { styled } from 'frontity'
 import contentImg from '../../assets/image-2.jpg';
 
-const TwoColsTextImg = ({ leftImage = contentImg, headingText = 'Collaborate better together.', contentText="Lower the barrier to remote collaboration with screen-sharing, whiteboards, scratchpads, timers and coming soon, integrations to your favorite apps" }) => {
+const TwoColsTextImg = ({ subHeading="", rightImage = contentImg, headingText = 'Collaborate better together.', contentText="Lower the barrier to remote collaboration with screen-sharing, whiteboards, scratchpads, timers and coming soon, integrations to your favorite apps" }) => {
     return(
         <Box as="section">
             <Box
             as="div"
-            className={['section-two-cols text-image'].filter(Boolean).join('')}>
+            className={['section-two-cols text-image'].filter(Boolean).join('')}
+            margin="30px 0">
                 <Grid 
                 maxWidth="var(--content-width)"
                 alignItems="center"
@@ -25,7 +26,8 @@ const TwoColsTextImg = ({ leftImage = contentImg, headingText = 'Collaborate bet
                         maxWidth={{ md:"600px", sm:"100%" }}
                         marginTop={{ md:"initial", sm:"30px" }}>
                             <Heading as="h2">{headingText}</Heading>
-                            <Text marginTop="30px">
+                            <Text as="p" fontWeight="700" margin="30px 0 0px">{subHeading}</Text>
+                            <Text marginTop="10px">
                                 {contentText}
                             </Text>
                         </Box>
@@ -33,7 +35,7 @@ const TwoColsTextImg = ({ leftImage = contentImg, headingText = 'Collaborate bet
                     <GridItem
                     className={['col-1 stc-image'].filter(Boolean).join('')}
                     order={{ md:"2", sm:"1" }}>
-                        <Image src={leftImage} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
+                        <Image src={rightImage} fallbackSrc="https://via.placeholder.com/150" margin="auto" />
                     </GridItem>
                 </Grid>
             </Box>

@@ -19,25 +19,16 @@ import mainStyles from "../styles/styles.css";
 import UserbackAPI from "./helpers/userback";
 import Banner from "./banner";
 
-import Overview from "./sections/overview";
-import TwoColsImgText from "./sections/two-cols-image-text";
-import TwoColsTextImg from "./sections/two-cols-text-image";
-import ImageTitle from "./sections/image-title";
-import Tile from "./sections/tile";
-import TabContentHeader from "./sections/tab-content";
-import GridLayout from "./layouts/grid-layout";
-import Logos from "./sections/logos";
-import Teams from "./sections/team-sections";
-import TitleSection from "./sections/title";
-
 import CruTeam from "./pages/cru-team";
 import Hosting from "./pages/hosting";
+import Pricing from "./pages/pricing";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+  const curLink = state.router.link
 
   const breakpoints = createBreakpoints({
     sm: "320px",
@@ -102,37 +93,12 @@ const Theme = ({ state }) => {
           <Post when={data.isPostType} />
           <Page404 when={data.is404} />
         </Switch>
-      </Box>
-      {/* <GridLayout /> */}
-      
-      <Divider />
-      <Heading textAlign="center">CRU Consulting Page Content</Heading>
-      <Divider />
-      <CruTeam />
-      <Divider />
-
-      <Divider />
-      <Heading textAlign="center">Hosting Page Content</Heading>
-      <Divider />
-      <Hosting />
-      <Divider />
-
-      <Divider />
-      <Heading as="h6" fontStyle="italic" textAlign="center">Component Samples</Heading>
-      <Divider />
-      <Overview textContent="Underneath our well-designed dashboard, there's a lot of technical stuff happening to keep your WordPress sites fast, secure, and performing perfectly. Powered by the Google Cloud Platform, Flywheel's impressive hosting infrastructure was created to be everything your sites need (plus a whole lot more)!"
-     buttonText="GET STARTED NOW" buttonLink="#" />
-      <TitleSection title="Better site performance = better business" paragraph="A key component of having a site that sells is reliable performance, something that Flywheel excels in! We're here to make sure your eCommerce site ranks well, loads fast, and earns you the income you deserve!" />
-      <TitleSection title="Flywheel's features &amp; platform" subtitle="Everything you need to grow your eCommerce site with ease!" />
-      <Logos />
-      <TabContentHeader />
-      <Teams />
-      <TwoColsImgText />
-      <TwoColsTextImg />
-      <ImageTitle />
-      <Tile />
-      <Divider />
-      
+        
+        {curLink == "/cru-team/" ? <CruTeam /> : ''}
+        {curLink == "/hosting-support/" ? <Hosting /> : ''}
+        {curLink == "/pricing/" ? <Pricing /> : ''}
+      </Box>            
+     
       <Banner />
       <Footer />
       <UserbackAPI />

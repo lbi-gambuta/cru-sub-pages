@@ -13,7 +13,7 @@ const TabLink = ({text, tab, linkClass, url = "#", ...props }) => {
         position={{ lg:"absolute", rd:"initial" }}
         textTransform="uppercase"
         href={url} data-tab={tab} 
-        className={`btn green-hovered ${linkClass}`}
+        className={`btn pink-hovered ${linkClass}`}
         {...props}>
             {text}
         </Link>
@@ -69,17 +69,18 @@ const TabItem = ({tabID, tabTitle, price, description, currency = "USD", linkTex
     )
 }
 
-const TabContentHeader = () => {
+const TabContentHeader = ( { width = "92%", ...props }) => {
     return (
         <Container className='section-tabs'>
             <Box as="div"
             className={['cw-tab-header'].filter(Boolean).join('')}
-            padding="5% 0">
+            padding="5% 0"
+            display={{ md:"block", sm:"none" }}>
                 <Grid
                 className={['sth-content-wrapper'].filter(Boolean).join('')}
                 position="relative"
                 maxWidth="var(--content-width)"
-                width="92%"
+                width={width}
                 margin="auto"
                 justifyContent="space-between"
                 alignItems="stretch"
@@ -110,7 +111,7 @@ const TabContentHeader = () => {
                     <TabItem tabID="custom" tabTitle="Custom" price="$2,000+" description="Per month or save $48 billed annually"/>
                 </Grid>
             </Box>
-            <DropDowns />
+            <DropDowns width={width} display={{ md:"block", sm:"none" }}/>
         </Container>
     )
 }

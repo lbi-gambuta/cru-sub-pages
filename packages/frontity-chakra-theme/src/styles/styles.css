@@ -2,8 +2,8 @@
     --content-width:1550px;
     --md-content-width:800px;
     --link-color:#5E597C;
-    --main-color:#130B41;
-    --pink:#F3417C;
+    --main-color:#0B043F;
+    --pink:#FF00B5;
     --light-pink:#FBB7CC;
     --gray:#909CB5;
     --heading-color:#71C1D8;
@@ -51,6 +51,11 @@ a.btn.green-hovered:hover, a.btn.green-hovered.selected{
     color:#fff!important;
     border-color:#7F7F7E;
 }
+a.btn.pink-hovered:hover, a.btn.pink-hovered.selected{
+    background:var(--pink);
+    color:#fff!important;
+    border-color:#7F7F7E;
+}
 a.btn:hover{
     background:#000;
     color:#fff;
@@ -68,6 +73,10 @@ a.btn:hover{
     .btn-group>a{
         margin-bottom:10px;
     }
+}
+
+ol, ul{
+    margin-left: 20px;
 }
 
 header nav, header ul{
@@ -155,15 +164,6 @@ div.cw-content-container>.wp-block-group>div.wp-block-group__inner-container {
 }
 .wp-block-group.cw-has-tabs {
     position: relative;
-}
-.wp-block-group.cw-has-tabs:after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: #000;
-    bottom: 0;
-    z-index: 0;
 }
 .cw-has-tabs h3 {
     text-transform: unset;

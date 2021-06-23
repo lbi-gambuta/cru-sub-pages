@@ -1,25 +1,33 @@
 import React from 'react'
-import { Heading, Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Overview from "../sections/overview"
 import TwoColsImgText from "../sections/two-cols-image-text"
 import TwoColsTextImg from '../sections/two-cols-text-image'
 import TitleSection from '../sections/title'
 import Tile from '../sections/tile.js'
+import ImageTitle from '../sections/image-title'
+import TabsDisplay from '../sections/tabs'
 
-const Hosting = () => {
+import { IoBandageSharp } from 'react-icons/io5'
+import { MdCached } from 'react-icons/md'
+import { FaKeycdn, FaDollarSign } from 'react-icons/fa'
+import { BsGraphUp } from 'react-icons/bs'
+import { ImHappy } from 'react-icons/im'
+
+const HostingTab = () => {
     const tiles1 = [
         [{
-            img : "#",
+            img : <IoBandageSharp />,
             title : "Auto-healing Technology",
             desc : "Your site will fix itself in the rare event of a service failure, meaning you can focus more on what makes your business unique. With fewer crashes and better uptime, you'll be able to provide uninterrupted customer experiences."
         }],
         [{
-            img : "#",
+            img : <MdCached />,
             title : "CRU Caching",
             desc : "Our custom caching technology is optimized to match your site's unique requirements and themes, so that you get the most out of our service!"
         }],
         [{
-            img : "#",
+            img : <FaKeycdn />,
             title : "CRU CDN",
             desc : "All our sites use a world-class CDN, so that means you can get great website performance for customers no matter where they are."
         }]
@@ -27,23 +35,23 @@ const Hosting = () => {
 
     const tiles2 = [
         [{
-            img : "#",
+            img : <BsGraphUp />,
             title : "Increase SEO Rankings",
             desc : "Google's algorithm considers page speed when ranking sites, so investing in fast infrastructure can improve your SEO and the number of new visitors finding your site!"
         }],
         [{
-            img : "#",
+            img : <ImHappy />,
             title : "Provide Better User Experience",
             desc : "We work with you to ensure your website loads quickly, so that over 50% of potential customers don't abandon their endeavour."
         }],
         [{
-            img : "#",
+            img : <FaDollarSign />,
             title : "Earn More Revenue",
             desc : "For every 100 milliseconds Amazon sped up load time, they saw an increase in sales by 1%. Combine that with all those new visitors finding your site in Google, and you’re looking at your best quarter yet!"
         }]
     ];
     return (
-        <Box as="section">
+        <Box as="section" data-tab="hosting">
             <Box as="div"
             width="92%"
             maxWidth="var(--content-width)"
@@ -60,6 +68,47 @@ const Hosting = () => {
                 <TwoColsImgText headingText="Focus on your eCommerce store while we focus on your site" contentText="Your WooCommerce shop will be performing at its best, no plugins or configuring required. That’s because CRU's powerful managed hosting platform is powered by the Google Cloud Platform and optimised specifically for WordPress (and eCommerce!)" />
             </Box>
         </Box>
+    )
+}
+
+const SupportTab = () =>{
+    return (
+        <Box as="section" data-tab="support">
+            <Box as="div"
+            width="92%"
+            maxWidth="var(--content-width)"
+            margin="auto">
+                <Overview textContent="CRU Support provides the back up you require to provide technical and service support to keep your website running optimally. Our advanced Support Ticketing system allows CRU clients to raise tickets directly from their website, either providing screenshots or videos for speedy support turnaround." />
+                <ImageTitle title="Real help from real humans" />
+                <TwoColsImgText headingText = 'Multi-Channel Support Portal' contentText="Raise a support ticket from our Support Portal or even better, raise it directly from your website to provide the staff with all of the information they need. All tickets raised by yourself as well as peers can be viewed so you never miss an issue that needs attention and maintenance!" />
+                <TwoColsTextImg headingText="CRU Knowledge Base" contentText="Get all your questions answered in one place with the CRU Knowledge Base. With articles on features and Add-Ons, it’ll be easy to get a clear understanding of everything we offer." />
+                <TwoColsImgText headingText="Community/Topics" contentText="Can’t find an answer to any questions you have through the KB articles? Raise a topic and either have the CRU Team or the community provide answers to questions" />
+                <Overview textContent="Need help? We've got you covered! Our plans are super clear on what is included. Need more support and want to upgrade your account with just the click of the button? No problem! Our portal makes upgrading simple for everyone." buttonText="View Plans" buttonLink="/pricing/" />
+            </Box>
+        </Box>
+    )
+}
+
+const Hosting = () => {
+    const tabContents = [
+        {
+            label: "CRU Hosting",
+            content: <HostingTab />
+        },
+        {
+            label: "CRU Support",
+            content: <SupportTab />
+        }
+    ]
+    return (
+        <>
+            <Overview textContent="Click the tabs below to learn more about our managed hosting solutions and support services and how they can benefit you &amp; your team." 
+                fontWeight="bold" 
+                fontSize="20px"
+                color="rgba(12, 17, 43, 0.8)"
+                lineHeight="1.3" />
+            <TabsDisplay data={tabContents} />
+        </>
     )
 }
 

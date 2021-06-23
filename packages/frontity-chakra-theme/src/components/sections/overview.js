@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text, Link} from '@chakra-ui/react'
 
-const Overview = ({ textContent="Text here", buttonText, buttonLink}) => {
+const Overview = ({ textContent="Text here", buttonText, buttonLink, fontWeight = "medium", ...props }) => {
     return (<Box 
         as="div"
         className={['section-overview'].filter(Boolean).join(' ')}
@@ -14,7 +14,7 @@ const Overview = ({ textContent="Text here", buttonText, buttonLink}) => {
         width="92%">
             <Box
             as="div">
-                <Text fontWeight="medium" textAlign="center">
+                <Text fontWeight={fontWeight} textAlign="center" {...props} >
                     {textContent}
                 </Text>
             </Box>

@@ -7,7 +7,7 @@ const TitleSection = ({ title, subtitle, paragraph }) => {
             <Box as="div"
             maxWidth="var(--md-content-width)"
             width="92%"
-            margin="30px auto">
+            margin="60px auto">
                 <Heading as="h2" textAlign="center" marginBottom="30px">{title}</Heading>
                 <Heading as="h5" fontStyle="italic" textAlign="center" marginBottom="30px" fontSize="22px">{subtitle}</Heading>
                 <Text as="p" textAlign="center">{paragraph}</Text>

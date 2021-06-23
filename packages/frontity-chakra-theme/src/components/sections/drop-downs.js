@@ -77,7 +77,7 @@ const DDAccordion = ({ title, subheading, features }) => {
     )
 }
 
-const DropDowns = () => {
+const DropDowns = ( { width="92%", ...props }) => {
     const features = [
         [ 
             {
@@ -239,9 +239,10 @@ const DropDowns = () => {
         ]
     ]; 
     return (
-        <Box as="section">
+        <Box as="section"
+        {...props}>
             <Box as="div"
-            width="92%"
+            width={width}
             maxWidth="var(--content-width)"
             margin="auto">
                 <Accordion allowToggle allowMultiple defaultIndex={[0]}>

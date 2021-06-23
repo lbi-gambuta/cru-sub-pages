@@ -3,12 +3,13 @@ import {Box, Grid, GridItem, Heading, Text, Image} from '@chakra-ui/react'
 import { styled } from 'frontity'
 import contentImg from '../../assets/image.jpg';
 
-const TwoColsImgText = ({ leftImage = contentImg, headingText = 'Reduce the friction to talk with your team', contentText="Walk or move to join a conversation just like you would in the office. You can only hear or be heard by people around you. Teamflow's spatial audio makes for the most natural happy hours, hangouts, or spontaneous chats."}) => {
+const TwoColsImgText = ({ subHeading="", leftImage = contentImg, headingText = 'Reduce the friction to talk with your team', contentText="Walk or move to join a conversation just like you would in the office. You can only hear or be heard by people around you. Teamflow's spatial audio makes for the most natural happy hours, hangouts, or spontaneous chats."}) => {
     return(
         <Box as="section">
             <Box
             as="div"
-            className={['section-two-cols image-text'].filter(Boolean).join('')}>
+            className={['section-two-cols image-text'].filter(Boolean).join('')}
+            margin="30px 0">
                 <Grid
                 maxWidth="var(--content-width)"
                 alignItems="center"
@@ -28,7 +29,8 @@ const TwoColsImgText = ({ leftImage = contentImg, headingText = 'Reduce the fric
                         maxWidth={{ md:"600px", sm:"100%" }}
                         marginTop={{ md:"initial", sm:"30px" }}>
                             <Heading as="h2">{headingText}</Heading>
-                            <Text marginTop="30px">
+                            <Text as="p" fontWeight="700" margin="30px 0 0px">{subHeading}</Text>
+                            <Text marginTop="10px">
                                 {contentText}
                             </Text>
                         </Box>
